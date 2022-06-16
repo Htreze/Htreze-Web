@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Htreze Web - Piadas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1 class="htreze-title">Htreze Web</h1>
+
+    <div class="htreze">
+        <p><a href="index.html" target="_parent">Home</p></a>
+        <p><a href="cotacao.html" target="_parent">Cotacao</p></a>
+        <p><a href="#" target="_parent">Piadas</p></a>
+    </div>
+
+    <div class="htrezepiadas">
+        <h1>Gerador de Piadas</h1>
+    </div>
+
+    <div class="htrezecaixa">
+        <input type="button" value="Gerar Piada" id="htrezebutao">
+    </div>
+
+    <div class="htrezegeradordepiada">
+
+    </div>
+
+    <script>
+
+    const url = `https://api.chucknorris.io/jokes/random`
+    
+    const trezebotao = document.getElementById('htrezebutao') .addEventListener('click', async function () {
+    const botaodotreze = document.getElementById('htrezebutao')
+    botaodotreze.setAttribute('value', 'Próxima')
+    const dados = await fetch(url)
+    const trezegerpiada = await dados.json()
+    const caixadotreze = document.querySelector('.htrezegeradordepiada')
+    caixadotreze.replaceChildren(trezegerpiada.value)
+  })
+
+
+    </script>
+</body>
+</html>
